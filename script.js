@@ -1,23 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
-
-fetch('data.json')
-    .then(response => response.json())
-
-    .then(data => {
-        // Gets a reference to the element with the id 'content' in the HTML document.
-        const collectionDiv = document.getElementById('collection');
-        data.forEach(item => {
-            const section = document.createElement('section');
-            section.innerHTML = `
-                   <h1> ${item.name} </h1>
-                    ${item.source}
-                    ${item.date}
-                    ${item.imageUrl}
-                    ${item.text}
-                    ${item.notes}
+  
+        fetch('https://raw.githubusercontent.com/sofiakchoi/csci20205/refs/heads/main/data.json')
+            .then(response => response.json()) 
+            .then(data => {
+                const contentDiv = document.getElementById('content');
+                data.forEach(item => {
+                    const section = document.createElement('section');
+                    section.innerHTML = `
+                        <h2>${item.name}</h2> 
+                        <img src="${item.imageUrl}">
+                        <h3> ${item.source} ${item.date}</h3>
+                        <p>"${item.text}"</p>
+                        <h3>Notes:</h3>
+                        <p>${item.notes}</p>
                     `;
-
-                    collectionDiv.appendChild(section);
+                    contentDiv.appendChild(section);
                 });
             })
-
+            .catch(error => console.error('Error loading the data:', error)); 
+    });
+    
