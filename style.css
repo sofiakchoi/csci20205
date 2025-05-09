@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #d6d6d6;
+    background-blend-mode: color-burn;
+    margin-top: 2em;
+}
+
+h1 {
+    font-family: plantin-condensed, sans-serif;
+    color: #000000b6;
+    font-size: 2.75em;
+    text-align: center;
+}
+
+#collection {
+    margin: 2em;
+    padding: 1em;
+}
